@@ -1,0 +1,21 @@
+.header__wrapper {
+    background: #000;
+    color: #fff;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.header__wrapper a {
+    color: #fff;
+}
+
+ul.navbar__wr {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul.navbar__wr li a {
+    padding: 17px 0px 18px 29px;
+}
