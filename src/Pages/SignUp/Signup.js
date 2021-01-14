@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {register,resetAuthResponsePerComponent} from '../../store/action/AuthAction'
 
 const Signup = ({resister,authResponse}) => {
@@ -19,8 +20,10 @@ const Signup = ({resister,authResponse}) => {
         e.preventDefault();
         resister(SignUp)
     }
-    
-    return (
+    if(localStorage.getItem('user')){
+        return <Redirect to="/dashboard" />;
+    }
+    return(
         <div className="home__wrapper">
             <div className="container">
                 <div className="row">

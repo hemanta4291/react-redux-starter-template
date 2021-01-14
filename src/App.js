@@ -15,7 +15,8 @@ import RootReducer from './store/reducer/Rootreducer'
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(RootReducer, composeEnhancer(applyMiddleware(thunk)))
 
-function App() {
+const App=()=> {
+
   return (
     <Provider store={store}>
       <div className="App">

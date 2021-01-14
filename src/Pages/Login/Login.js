@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {UserLogin,resetAuthResponsePerComponent} from '../../store/action/AuthAction'
 
 const Login = ({UserLogin1,authResponse,history}) => {
@@ -17,6 +18,9 @@ const Login = ({UserLogin1,authResponse,history}) => {
         e.preventDefault();
         UserLogin1(LoginText,history)
     }
+    if(localStorage.getItem('user')){
+        return <Redirect to="/dashboard" />;
+    }  
     return (
         <div className="home__wrapper">
             <div className="container">
