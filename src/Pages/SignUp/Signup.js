@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 import {register,resetAuthResponsePerComponent} from '../../store/action/AuthAction'
 
 const Signup = ({resister,authResponse}) => {
@@ -20,6 +21,10 @@ const Signup = ({resister,authResponse}) => {
         e.preventDefault();
         resister(SignUp)
     }
+    const notify = (text) => {
+        toast.success(text);
+      };
+  
     if(localStorage.getItem('user')){
         return <Redirect to="/dashboard" />;
     }
@@ -43,7 +48,8 @@ const Signup = ({resister,authResponse}) => {
                                 <input type="password" className="form-control" name="password" id="password" onChange={handleChange} placeholder="Password"/>
                             </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
-                            <p>{authResponse? authResponse: ''}</p>
+                            <p>{authResponse? notify(authResponse): ''}</p>
+                            <ToastContainer />
                         </form>
                     </div>
                 </div>

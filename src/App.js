@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import {createStore, compose, applyMiddleware} from 'redux'
 import Header from './Layout/Header/Header'

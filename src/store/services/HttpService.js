@@ -13,7 +13,9 @@ class HttpService{
     
         return axios.post(this.url+"/"+added_url, item,headers)
         .then(function (response) {
+            console.log(response)
             return response;
+            
         })
         // return fetch(this.url+"/"+added_url, requestOptions).then(
         //     response=>response.json()
@@ -23,6 +25,26 @@ class HttpService{
     }
     
     
+
+    ContactData = async(item ,added_url) =>{
+        const token = await localStorage.getItem('user');
+        let requestOptions = {
+            method:'POST',
+            headers:{'Authorization':token,
+             'Content-type':'Application/json',
+            },
+        
+        body:JSON.stringify(item)
+        
+        }
+        
+        return fetch(this.url+"/"+added_url, requestOptions).then(
+            response=>response.json());
+    }
+        
+        
+
+
     getData = async(added_url) =>{
         const token = await localStorage.getItem("user");
         let requestOptions = {

@@ -1,30 +1,17 @@
 import HttpService from './HttpService';
+import {ACTION_CONTACT_AD} from '../action/actionType'
 
 
 
-export const SignUpService = (credentials) =>{
-    // console.log(credentials)
-    // console.log("authSERvice")
+export const addNewContact = (credentials) =>{
     const http = new HttpService();
-    // console.log(HttpService);
-    let signUpUrl = "user/register";
-    return http.postData(credentials,signUpUrl).then(data=>{
-        //console.log(JSON.stringify(data));
-        return data;
+    credentials.token = localStorage.getItem('user');
+    //console.log(credentials)
+    return http.ContactData(credentials,ACTION_CONTACT_AD).then(data=>{
+        
+         return data;
     })
     // .catch((error)=> {console.log(error)
     //     return error; 
     //      });
-}
-
-export const LoginUser = (credentials,propsHistory) =>{
-    const http = new HttpService();
-    // console.log(HttpService);
-    let signUpUrl = "user/login";
-    return http.postData(credentials,signUpUrl).then(data=>{
-        console.log(JSON.stringify(data));
-        return data;
-    }).catch((error)=> {console.log(error)
-   return error; 
-    });
 }
